@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "rate-limiter-flexible": "^11.0.1"
+  }
+}

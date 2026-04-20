@@ -1,0 +1,147 @@
+{"level":"error","message":"Error occured in Redis Connection Redis is already connecting/connected","service":"identity-service","stack":"Error: Redis is already connecting/connected\n    at D:\\programs\\social-media-microservice\\Identity-Service\\node_modules\\ioredis\\built\\Redis.js:108:24\n    at new Promise (<anonymous>)\n    at EventEmitter.connect (D:\\programs\\social-media-microservice\\Identity-Service\\node_modules\\ioredis\\built\\Redis.js:104:25)\n    at RedisConn (file:///D:/programs/social-media-microservice/Identity-Service/src/config/redis.js:23:22)\n    at file:///D:/programs/social-media-microservice/Identity-Service/src/config/redis.js:33:16\n    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)","timestamp":"2026-04-20T06:19:15.589Z"}
+{"code":"ECONNREFUSED","level":"error","message":"Redis client error occured","service":"identity-service","stack":"AggregateError [ECONNREFUSED]: \n    at internalConnectMultiple (node:net:1134:18)\n    at afterConnectMultiple (node:net:1715:7)","timestamp":"2026-04-20T06:19:15.600Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:21:40.108Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:21:52.095Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:24:55.038Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:25:00.219Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:25:07.441Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:25:39.822Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:01.828Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:08.529Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:16.109Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:18.152Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:22.208Z"}
+{"0":"r","1":"e","2":"a","3":"s","4":"o","5":"n","6":" ","7":":","level":"error","message":"Unhandeled rejection at ","service":"identity-service","timestamp":"2026-04-20T06:26:29.275Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:29.471Z"}
+{"0":"r","1":"e","2":"a","3":"s","4":"o","5":"n","6":" ","7":":","level":"error","message":"Unhandeled rejection at ","service":"identity-service","timestamp":"2026-04-20T06:26:30.403Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:30.531Z"}
+{"0":"r","1":"e","2":"a","3":"s","4":"o","5":"n","6":" ","7":":","level":"error","message":"Unhandeled rejection at ","service":"identity-service","timestamp":"2026-04-20T06:26:31.968Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:32.184Z"}
+{"0":"r","1":"e","2":"a","3":"s","4":"o","5":"n","6":" ","7":":","level":"error","message":"Unhandeled rejection at ","service":"identity-service","timestamp":"2026-04-20T06:26:51.462Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:26:51.792Z"}
+{"level":"error","message":"Unhandled Rejection","promise":{},"reason":{},"service":"identity-service","timestamp":"2026-04-20T06:28:31.605Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:28:31.963Z"}
+{"level":"error","message":"Unhandled Rejection","promise":{},"reason":{},"service":"identity-service","timestamp":"2026-04-20T06:29:12.512Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:29:12.832Z"}
+{"level":"error","message":"Unhandled Rejection","promise":{},"reason":{},"service":"identity-service","timestamp":"2026-04-20T06:30:57.909Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:30:58.280Z"}
+{"level":"error","message":"Unhandled Rejection","promise":{},"reason":{},"service":"identity-service","timestamp":"2026-04-20T06:31:06.201Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:31:06.317Z"}
+{"level":"error","message":"Unhandled Rejection","promise":{},"reason":{},"service":"identity-service","timestamp":"2026-04-20T06:31:11.796Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:31:11.925Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:33:05.482Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:33:05.796Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:33:06.453Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:33:24.209Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:33:24.803Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:38:26.745Z"}
+{"level":"info","message":"Request Body,undefined","service":"identity-service","timestamp":"2026-04-20T06:38:26.746Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:38:26.889Z"}
+{"0":"C","1":"a","10":"t","11":"r","12":"u","13":"c","14":"t","15":"u","16":"r","17":"e","18":" ","19":"p","2":"n","20":"r","21":"o","22":"p","23":"e","24":"r","25":"t","26":"y","27":" ","28":"'","29":"e","3":"n","30":"m","31":"a","32":"i","33":"l","34":"'","35":" ","36":"o","37":"f","38":" ","39":"'","4":"o","40":"r","41":"e","42":"q","43":".","44":"b","45":"o","46":"d","47":"y","48":"'","49":" ","5":"t","50":"a","51":"s","52":" ","53":"i","54":"t","55":" ","56":"i","57":"s","58":" ","59":"u","6":" ","60":"n","61":"d","62":"e","63":"f","64":"i","65":"n","66":"e","67":"d","68":".","7":"d","8":"e","9":"s","level":"error","message":"Error in registerUser ","service":"identity-service","timestamp":"2026-04-20T06:38:26.898Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:40:37.590Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:40:38.100Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:40:41.575Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:40:41.576Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:40:41.688Z"}
+{"0":"\"","1":"u","10":" ","11":"i","12":"s","13":" ","14":"r","15":"e","16":"q","17":"u","18":"i","19":"r","2":"s","20":"e","21":"d","3":"e","4":"r","5":"n","6":"a","7":"m","8":"e","9":"\"","level":"warn","message":"validation error","service":"identity-service","timestamp":"2026-04-20T06:40:41.695Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:40:56.519Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:40:56.520Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:40:56.672Z"}
+{"0":"\"","1":"u","10":" ","11":"i","12":"s","13":" ","14":"r","15":"e","16":"q","17":"u","18":"i","19":"r","2":"s","20":"e","21":"d","3":"e","4":"r","5":"n","6":"a","7":"m","8":"e","9":"\"","level":"warn","message":"validation error","service":"identity-service","timestamp":"2026-04-20T06:40:56.676Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:41:33.068Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:41:33.710Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:41:53.578Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:41:54.018Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:41:54.949Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:41:54.949Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:41:55.076Z"}
+{"0":"\"","1":"u","10":" ","11":"i","12":"s","13":" ","14":"r","15":"e","16":"q","17":"u","18":"i","19":"r","2":"s","20":"e","21":"d","3":"e","4":"r","5":"n","6":"a","7":"m","8":"e","9":"\"","level":"warn","message":"validation error","service":"identity-service","timestamp":"2026-04-20T06:41:55.084Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:42:57.137Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:42:58.063Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:42:58.594Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:42:59.761Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:42:59.762Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:42:59.905Z"}
+{"0":"\"","1":"u","10":" ","11":"i","12":"s","13":" ","14":"r","15":"e","16":"q","17":"u","18":"i","19":"r","2":"s","20":"e","21":"d","3":"e","4":"r","5":"n","6":"a","7":"m","8":"e","9":"\"","level":"warn","message":"validation error","service":"identity-service","timestamp":"2026-04-20T06:42:59.912Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:43:22.355Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:43:22.808Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:43:33.376Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:43:33.936Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:43:36.111Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:43:36.111Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:43:36.242Z"}
+{"0":"\"","1":"u","10":" ","11":"i","12":"s","13":" ","14":"r","15":"e","16":"q","17":"u","18":"i","19":"r","2":"s","20":"e","21":"d","3":"e","4":"r","5":"n","6":"a","7":"m","8":"e","9":"\"","level":"warn","message":"validation error","service":"identity-service","timestamp":"2026-04-20T06:43:36.248Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:43:48.405Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:43:48.407Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:43:48.417Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:43:48.662Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:43:48.820Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:43:51.829Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:43:51.829Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:43:51.951Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:44:00.387Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:44:01.226Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:44:25.672Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:44:25.962Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:44:27.824Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:44:27.825Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:44:27.941Z"}
+{"level":"warn","message":"Validation error: \"username\" is required","service":"identity-service","timestamp":"2026-04-20T06:44:27.948Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:51:44.116Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:51:44.117Z"}
+{"code":"ECONNRESET","errno":-4077,"level":"error","message":"Redis client error occurred read ECONNRESET","service":"identity-service","stack":"Error: read ECONNRESET\n    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20)","syscall":"read","timestamp":"2026-04-20T06:52:05.749Z"}
+{"level":"error","message":"Unhandled Rejection","promise":{},"reason":{"code":"ECONNRESET","errno":-4077,"syscall":"read"},"service":"identity-service","timestamp":"2026-04-20T06:52:05.751Z"}
+{"code":"ETIMEDOUT","errorno":"ETIMEDOUT","level":"error","message":"Redis client error occurred connect ETIMEDOUT","service":"identity-service","stack":"Error: connect ETIMEDOUT\n    at TLSSocket.<anonymous> (D:\\programs\\social-media-microservice\\Identity-Service\\node_modules\\ioredis\\built\\Redis.js:171:41)\n    at Object.onceWrapper (node:events:633:28)\n    at TLSSocket.emit (node:events:519:28)\n    at Socket._onTimeout (node:net:604:8)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)","syscall":"connect","timestamp":"2026-04-20T06:52:15.838Z"}
+{"code":"ETIMEDOUT","errorno":"ETIMEDOUT","level":"error","message":"Redis client error occurred connect ETIMEDOUT","service":"identity-service","stack":"Error: connect ETIMEDOUT\n    at TLSSocket.<anonymous> (D:\\programs\\social-media-microservice\\Identity-Service\\node_modules\\ioredis\\built\\Redis.js:171:41)\n    at Object.onceWrapper (node:events:633:28)\n    at TLSSocket.emit (node:events:519:28)\n    at Socket._onTimeout (node:net:604:8)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)","syscall":"connect","timestamp":"2026-04-20T06:52:25.965Z"}
+{"code":"ETIMEDOUT","errorno":"ETIMEDOUT","level":"error","message":"Redis client error occurred connect ETIMEDOUT","service":"identity-service","stack":"Error: connect ETIMEDOUT\n    at TLSSocket.<anonymous> (D:\\programs\\social-media-microservice\\Identity-Service\\node_modules\\ioredis\\built\\Redis.js:171:41)\n    at Object.onceWrapper (node:events:633:28)\n    at TLSSocket.emit (node:events:519:28)\n    at Socket._onTimeout (node:net:604:8)\n    at listOnTimeout (node:internal/timers:585:17)\n    at process.processTimers (node:internal/timers:521:7)","syscall":"connect","timestamp":"2026-04-20T06:52:36.140Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:52:42.995Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:52:43.499Z"}
+{"buffer":{"data":[105,229,205,60,191,31,37,98,250,124,174,181],"type":"Buffer"},"level":"info","message":"User saved successfully","service":"identity-service","timestamp":"2026-04-20T06:52:44.444Z"}
+{"0":"s","1":"e","10":"i","11":"v","12":"a","13":"t","14":"e","15":"K","16":"e","17":"y","18":" ","19":"m","2":"c","20":"u","21":"s","22":"t","23":" ","24":"h","25":"a","26":"v","27":"e","28":" ","29":"a","3":"r","30":" ","31":"v","32":"a","33":"l","34":"u","35":"e","4":"e","5":"t","6":"O","7":"r","8":"P","9":"r","level":"error","message":"Error in registerUser ","service":"identity-service","timestamp":"2026-04-20T06:52:44.445Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:53:58.936Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:53:58.937Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:53:59.095Z"}
+{"level":"warn","message":"User already exists","service":"identity-service","timestamp":"2026-04-20T06:53:59.253Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:54:08.581Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:54:08.581Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:54:08.726Z"}
+{"buffer":{"data":[105,229,205,144,191,31,37,98,250,124,174,182],"type":"Buffer"},"level":"info","message":"User saved successfully","service":"identity-service","timestamp":"2026-04-20T06:54:08.792Z"}
+{"0":"s","1":"e","10":"i","11":"v","12":"a","13":"t","14":"e","15":"K","16":"e","17":"y","18":" ","19":"m","2":"c","20":"u","21":"s","22":"t","23":" ","24":"h","25":"a","26":"v","27":"e","28":" ","29":"a","3":"r","30":" ","31":"v","32":"a","33":"l","34":"u","35":"e","4":"e","5":"t","6":"O","7":"r","8":"P","9":"r","level":"error","message":"Error in registerUser ","service":"identity-service","timestamp":"2026-04-20T06:54:08.793Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:54:29.535Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:54:30.148Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:55:07.017Z"}
+{"level":"info","message":"Request Body,undefined","service":"identity-service","timestamp":"2026-04-20T06:55:07.017Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:55:07.231Z"}
+{"0":"C","1":"a","10":"t","11":"r","12":"u","13":"c","14":"t","15":"u","16":"r","17":"e","18":" ","19":"p","2":"n","20":"r","21":"o","22":"p","23":"e","24":"r","25":"t","26":"y","27":" ","28":"'","29":"e","3":"n","30":"m","31":"a","32":"i","33":"l","34":"'","35":" ","36":"o","37":"f","38":" ","39":"'","4":"o","40":"r","41":"e","42":"q","43":".","44":"b","45":"o","46":"d","47":"y","48":"'","49":" ","5":"t","50":"a","51":"s","52":" ","53":"i","54":"t","55":" ","56":"i","57":"s","58":" ","59":"u","6":" ","60":"n","61":"d","62":"e","63":"f","64":"i","65":"n","66":"e","67":"d","68":".","7":"d","8":"e","9":"s","level":"error","message":"Error in registerUser ","service":"identity-service","timestamp":"2026-04-20T06:55:07.238Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:55:49.867Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:55:49.867Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:55:49.988Z"}
+{"level":"warn","message":"Validation error: \"password\" is required","service":"identity-service","timestamp":"2026-04-20T06:55:49.995Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:55:57.418Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:55:57.419Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:55:57.600Z"}
+{"level":"warn","message":"Validation error: \"password\" length must be at least 6 characters long","service":"identity-service","timestamp":"2026-04-20T06:55:57.603Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T06:56:04.799Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T06:56:04.800Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T06:56:05.305Z"}
+{"buffer":{"data":[105,229,206,6,225,230,19,236,114,225,26,152],"type":"Buffer"},"level":"info","message":"User saved successfully","service":"identity-service","timestamp":"2026-04-20T06:56:06.618Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:58:16.098Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:58:16.780Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:58:21.716Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:58:22.393Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T06:58:38.774Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T06:58:39.151Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T07:00:45.004Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T07:00:45.566Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T07:00:52.657Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T07:00:52.658Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T07:00:52.827Z"}
+{"level":"warn","message":"User already exists","service":"identity-service","timestamp":"2026-04-20T07:00:52.909Z"}
+{"level":"info","message":"Recieved POST req to /api/auth/register","service":"identity-service","timestamp":"2026-04-20T07:01:03.764Z"}
+{"level":"info","message":"Request Body,[object Object]","service":"identity-service","timestamp":"2026-04-20T07:01:03.765Z"}
+{"level":"info","message":"Register User endpoint Hit...","service":"identity-service","timestamp":"2026-04-20T07:01:03.905Z"}
+{"level":"warn","message":"User already exists","service":"identity-service","timestamp":"2026-04-20T07:01:03.970Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T07:08:21.919Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T07:08:22.541Z"}
+{"level":"info","message":"Connected to Redis successfully","service":"identity-service","timestamp":"2026-04-20T07:09:13.548Z"}
+{"level":"info","message":"MongoDB connected successfully","service":"identity-service","timestamp":"2026-04-20T07:09:14.146Z"}
