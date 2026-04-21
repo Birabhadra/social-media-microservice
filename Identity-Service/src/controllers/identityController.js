@@ -4,6 +4,7 @@ import {validateRegistration} from "../utils/validation.js"
 import generateToken from "../utils/generateToken.js"
 
 const registerUser=async(req,res)=>{
+    console.log(req)
     logger.info("Register User endpoint Hit...")
     try{
         const {error}=validateRegistration(req.body)
