@@ -1,16 +1,16 @@
+import "dotenv/config"
 import express from "express";
 import helmet from "helmet";
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import RateLimit from "express-rate-limit"
-import RedisConn, { rateLimiter } from "./config/redis.js"
-import "dotenv/config"
 import logger from "./utils/logger.js";
+import RedisConn, { rateLimiter } from "./config/redis.js"
 import {sensitiveEndpointLimiter} from "./utils/senstitiveEndpointsLimiter.js"
+import { waitForRedis} from "./config/redis.js"
+import connectMongo from "./config/db.js"
 import authRoutes from "./routes/authRoutes.js"
 import errorHandler from "./middlewares/errorHandler.js"
-import connectMongo from "./config/db.js"
-import { waitForRedis} from "./config/redis.js"
 const app=express()
 const PORT=process.env.PORT
 app.use(express.json())

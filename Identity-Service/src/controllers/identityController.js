@@ -5,6 +5,7 @@ import generateToken from "../utils/generateToken.js"
 import refreshToken from "../models/refreshToken.js";
 
 const registerUser=async(req,res)=>{
+    console.log(req)
     logger.info("Register User endpoint Hit...")
     try{
         const {error}=validateRegistration(req.body)
