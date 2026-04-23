@@ -139,14 +139,14 @@ const refreshTokenController=async(req,res)=>{
         })
 
     }catch(e){
-        logger.error(`Error in Login User ${e.message}`)
+        logger.error(`Error in refreshing token ${e.message}`)
         return res.status(400).json({
             success:false,
             message:`Error Occured ${e.message}`
         })
     }
 }
-const logoutController=(req,res)=>{
+const logoutController=async(req,res)=>{
     try{
         const {RefreshToken}=req.body
         if (!RefreshToken){
@@ -182,7 +182,7 @@ const logoutController=(req,res)=>{
         })
 
     }catch(e){
-        logger.error(`Error in Login User ${e.message}`)
+        logger.error(`Error in Logout User ${e.message}`)
         return res.status(400).json({
             success:false,
             message:`Error Occured ${e.message}`

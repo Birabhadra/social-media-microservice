@@ -3,11 +3,7 @@ import "dotenv/config";
 import logger from "../utils/logger.js";
 import { RateLimiterRedis } from "rate-limiter-flexible";
 
-if (!process.env.REDIS_URL) {
-  throw new Error("REDIS_URL is missing");
-}
 export const client = new Redis(process.env.REDIS_URL);
-
 
 export const rateLimiter = new RateLimiterRedis({
   storeClient: client,
@@ -28,10 +24,9 @@ client.on("error", (err) => {
 
 export function waitForRedis() {
   return new Promise((resolve, reject) => {
-    const onReady = () => { client.off("error", onError); resolve(); };
-    const onError = (err) => { client.off("ready", onReady); reject(err); };
-    client.once("ready", onReady);
-    client.once("error", onError);
+    client.once("ready", resolve);
+    client.once("error", reject);
   });
 }
+
 export default client;
