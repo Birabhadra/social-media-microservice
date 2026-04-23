@@ -47,9 +47,10 @@ const proxyOptions = {
     proxyErrorHandler: (err, req, res, next) => {
         logger.error(`Proxy error ${err.message}`);
         if (!res.headersSent) {
-            res.status(500).json({
+            const isTimeout = err?.code === "ECONNRESET" ||err?.code === "ETIMEDOUT" ||/timeout/i.test(err?.message || "");
+            res.status(isTimeout ? 504 : 500).json({
                 success: false,
-                message: "Internal server error",
+                message: isTimeout ? "Gateway timeout" : "Internal server error",
             });
         }
     }

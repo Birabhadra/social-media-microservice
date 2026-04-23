@@ -6,9 +6,9 @@ async function invalidatePostCache(req, input) {
     const cachedKey = `post:${input}`;
     await client.del(cachedKey);
 
-    const keys = await client.keys("posts:*");
-    if (keys.length > 0) {
-        await client.del(keys);
+    const stream = client.scanStream({ match: "posts:*", count: 100 });
+    for await (const keys of stream) {
+        if (keys.length) await client.del(...keys);
     }
 }
 const createPost = async (req, res) => {
@@ -59,9 +59,8 @@ const getAllPosts = async (req, res) => {
             return res.status(200).json(JSON.parse(cachedposts))
         }
         logger.info("Cache Miss")
-        const posts = await Post.find({}).sort({ created_at: -1 }).skip(startIndex).limit(limit)
-
-        const totalPost = await Post.countDocuments
+        const posts = await Post.find({}).sort({ createdAt: -1 }).skip(startIndex).limit(limit)
+        const totalPost = await Post.countDocuments()
 
         const result = {
             posts,

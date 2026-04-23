@@ -19,9 +19,9 @@ app.use(cookieParser())
 app.use(helmet())
 app.use(cors())
 app.use((req,res,next)=>{
-    logger.info(`Recieved ${req.method} req to ${req.url}`);
-    logger.info(`Request Body,${req.body}`);
-    next();
+  logger.info(`Received ${req.method} ${req.url}`);
+  logger.info(`Request Body,${req.body}`);
+  next();
 })
 
 app.use((req,res,next)=>{
@@ -31,14 +31,8 @@ app.use((req,res,next)=>{
     });
 })
 
-app.use('/api/posts',postRoutes)
+app.use('/api/posts',postRoutes,sensitiveEndpointLimiter)
 app.use(errorHandler)
-app.listen(PORT,async ()=>{
-    console.log(`Server running on http://localhost:${PORT}`)
-    await connectMongo();
-    await waitForRedis();
-
-})
 app.use((err, req, res, next) => {
     logger.error("Request Error", {
       message: err.message,
@@ -54,6 +48,12 @@ app.use((err, req, res, next) => {
       message: "Internal server error",
     });
   });
+
+(async () => {
+  await connectMongo();
+  await waitForRedis();
+  app.listen(PORT, () => logger.info(`Server running on http://localhost:${PORT}`));
+})().catch((err) => { logger.error("Startup failed", err); process.exit(1); });
 process.on("unhandledRejection", (reason, promise) => {
     logger.error("Unhandled Rejection", {
       promise,
