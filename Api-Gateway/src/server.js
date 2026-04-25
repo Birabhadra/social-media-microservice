@@ -86,6 +86,24 @@ app.use('/v1/posts', validateToken, proxy(process.env.POST_SERVICE_URL, {
     }
 }))
 
+app.use('/v1/media', validateToken, proxy(process.env.MEDIA_SERVICE_URL, {
+    ...proxyOptions,
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+        proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
+        const contentType = srcReq.headers["content-type"] || "";
+        if (!contentType.startsWith("multipart/form-data")) {
+            proxyReqOpts.headers["content-type"] = "application/json"
+        }
+        return proxyReqOpts
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+        logger.info(`Response recieved from Media service:${proxyRes.statusCode}`)
+        return proxyResData
+    },
+    parseReqBody:false,
+    proxyTimeout: 20000,
+    timeout: 20000,  
+}))
 
 app.use(errorHandler)
 
