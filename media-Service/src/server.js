@@ -14,7 +14,7 @@ import MediaRoutes from "./routes/mediaRouter.js"
 import errorHandler from "./middlewares/errorHandler.js"
 const app = express()
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3003
 app.use(express.json())
 app.use(cookieParser())
 app.use(helmet())
