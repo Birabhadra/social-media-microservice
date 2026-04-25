@@ -8,7 +8,7 @@ export const sensitiveEndpointLimiter=rateLimit({
     standardHeaders:true,
     legacyHeaders:false,
     handler:(req,res)=>{
-        logger.warn(`sensitive rate limit exceeded form IP:${req.ip}`)
+        logger.warn(`sensitive rate limit exceeded from IP:${req.ip}`)
         res.status(429).json({success:false,message:"Too many requests"})
     },
     store:new RedisStore({
