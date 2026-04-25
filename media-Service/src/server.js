@@ -25,15 +25,17 @@ app.use((req, res, next) => {
 })
 
 app.use((req, res, next) => {
-  rateLimiter.consume(req.ip).then(() => next()).catch(() => {
-    logger.warn(`Rate limit exceeded for IP:${req.ip}`)
-    res.status(429).json({ success: false, message: "Too many requests" })
-  });
+  rateLimiter.consume(req.ip)
+    .then(() => next())
+    .catch((rejRes) => {
+      if (rejRes instanceof Error) {
+        logger.error("Rate limiter backend error", { message: rejRes.message });
+        return next(); // fail-open; or return 503 if you prefer fail-closed
+      }
+      logger.warn(`Rate limit exceeded for IP:${req.ip}`);
+      res.status(429).json({ success: false, message: "Too many requests" });
+    });
 })
-
-app.use('/api/media', sensitiveEndpointLimiter,MediaRoutes)
-app.use(errorHandler)
-
 app.use((err, req, res, next) => {
   logger.error("Request Error", {
     message: err.message,
@@ -49,6 +51,11 @@ app.use((err, req, res, next) => {
     message: "Internal server error",
   });
 });
+
+
+app.use('/api/media', sensitiveEndpointLimiter, MediaRoutes)
+app.use(errorHandler)
+
 
 
 async function startServer() {
@@ -76,19 +83,23 @@ async function startServer() {
     const shutdown = async (signal) => {
       logger.warn(`⚠️ Received ${signal}. Shutting down gracefully...`);
 
-      try {
-        server.close(async () => {
-          logger.info("HTTP server closed");
-
-          await closeRabbitMQ();
-
-          logger.info("Shutdown complete");
-          process.exit(0);
-        });
-      } catch (err) {
-        logger.error("Error during shutdown", err);
+      const forceExit = setTimeout(() => {
+        logger.error("Forced shutdown after timeout");
         process.exit(1);
-      }
+      }, 10_000).unref();
+
+      server.close(async () => {
+        try {
+          logger.info("HTTP server closed");
+          await closeRabbitMQ();
+          logger.info("Shutdown complete");
+          clearTimeout(forceExit);
+          process.exit(0);
+        } catch (err) {
+          logger.error("Error during shutdown", { message: err.message, stack: err.stack });
+          process.exit(1);
+        }
+      });
     };
 
     process.on("SIGINT", shutdown);

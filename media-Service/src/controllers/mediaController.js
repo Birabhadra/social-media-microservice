@@ -3,9 +3,8 @@ import logger from "../utils/logger.js"
 import { uploadMediaToCloudinary } from "../config/cloudinary.js"
 
 const uploadMedia = async (req, res) => {
-    logger.info("Strating media Upload")
+    logger.info("Starting media Upload")
     try {
-        console.log(req.file)
         if (!req.file) {
             logger.error("No file found.Please add a file and try again");
             return res.status(400).json({
@@ -13,7 +12,7 @@ const uploadMedia = async (req, res) => {
                 message: "No file found. Please add a file and try again"
             })
         }
-        const { originalname, mimetype, buffer } = req.file;
+        const { originalname, mimetype} = req.file;
         const userId = req.user.userId;
 
         logger.info(`File details: name=${originalname}, type=${mimetype}`);

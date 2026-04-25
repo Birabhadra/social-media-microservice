@@ -7,7 +7,7 @@ const isauthenticated=(req,res,next)=>{
     logger.warn(`Access attempted without user ID`);
     return res.status(401).json({
       success: false,
-      message: "Authencation required! Please login to continue",
+      message: "Authentication required! Please login to continue",
     });
   }
 
