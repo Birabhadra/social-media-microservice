@@ -62,7 +62,7 @@ const getAllMedias = async (req, res) => {
             success: true,
             media: result
         })
-    } catch (e) {
+    } catch (error) {
         logger.error("Error fetching medias", error);
         res.status(500).json({
             success: false,
