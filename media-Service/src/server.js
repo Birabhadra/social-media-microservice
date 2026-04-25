@@ -5,6 +5,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import RateLimit from "express-rate-limit"
 import logger from "./utils/logger.js";
+import RedisConn, { rateLimiter } from "./config/redis.js"
 import { connectRabbitMQ, closeRabbitMQ } from "./config/rabbitmq.js"
 import { sensitiveEndpointLimiter } from "./utils/senstitiveEndpointsLimiter.js"
 import { waitForRedis } from "./config/redis.js"
@@ -20,7 +21,6 @@ app.use(helmet())
 app.use(cors())
 app.use((req, res, next) => {
   logger.info(`Received ${req.method} ${req.url}`);
-  logger.info(`Request Body,${req.body}`);
   next();
 })
 
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   });
 })
 
-app.use('/api/media', MediaRoutes, sensitiveEndpointLimiter)
+app.use('/api/media', sensitiveEndpointLimiter,MediaRoutes)
 app.use(errorHandler)
 
 app.use((err, req, res, next) => {

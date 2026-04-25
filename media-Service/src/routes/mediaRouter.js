@@ -12,34 +12,35 @@ const upload = multer({
     }
 }).single("file")
 
-router.post("/upload", isauthenticated,
-    (req, res, next) => {
-        upload(req, res, function (err) {
-            if (err instanceof multer.MulterError) {
-                logger.error("Multer error while uploading")
-                return res.status(400).json({
-                    message: "Multer error while uploading",
-                    error: err.message,
-                    stack: err.stack
-                })
-            } else if (err) {
-                logger.error("Multer error while uploading")
-                return res.status(400).json({
-                    message: "Multer error while uploading",
-                    error: err.message,
-                    stack: err.stack
-                })
+router.post("/upload", isauthenticated,upload,
+    // (req, res, next) => {
+    //     upload(req, res, function (err) {
+    //         if (err instanceof multer.MulterError) {
+    //             logger.error("Multer error while uploading")
+    //             return res.status(400).json({
+    //                 message: "Multer error while uploading",
+    //                 error: err.message,
+    //                 stack: err.stack
+    //             })
+    //         } else if (err) {
+    //             logger.error("Multer error while uploading")
+    //             return res.status(400).json({
+    //                 message: "Multer error while uploading",
+    //                 error: err.message,
+    //                 stack: err.stack
+    //             })
 
-            }
-            if (!req.file) {
-                return res.status(400).json({
-                    message: "No file found!",
-                });
-            }
-        });
-        next();
+    //         }
+    //         if (!req.file) {
+    //             return res.status(400).json({
+    //                 message: "No file found!",
+    //             });
+    //         }
+    //         next();
+    //     });
 
-    }, mediaController.uploadMedia
+    // }, 
+    mediaController.uploadMedia
 )
 
 router.get("/get", isauthenticated, mediaController.getAllMedias);

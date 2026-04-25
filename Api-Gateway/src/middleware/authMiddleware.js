@@ -3,9 +3,15 @@ import jwt from "jsonwebtoken"
 import "dotenv/config"
 export const validateToken=(req,res,next)=>{
     const authHeader=req.headers['authorization']
-    const [scheme,token]=authHeader?.split(' ')[1]
+    if (!authHeader){
+        return res.status(400).json({
+            success:false,
+            message:"Token is required"
+        })
+    }
+    const token=authHeader?.split(' ')[1]
 
-    if(scheme!="Bearer" ||!token){
+    if(!token){
         logger.warn('Access attempted without token')
         return res.status(401).json({
             success:false,

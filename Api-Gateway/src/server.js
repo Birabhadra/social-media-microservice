@@ -99,7 +99,9 @@ app.use('/v1/media', validateToken, proxy(process.env.MEDIA_SERVICE_URL, {
         logger.info(`Response recieved from Media service:${proxyRes.statusCode}`)
         return proxyResData
     },
-    parseReqBody:false
+    parseReqBody:false,
+    proxyTimeout: 20000,
+    timeout: 20000,  
 }))
 
 app.use(errorHandler)
