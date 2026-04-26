@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   });
 })
 
-app.use('/api/posts', postRoutes, sensitiveEndpointLimiter)
+app.use('/api/posts', sensitiveEndpointLimiter, postRoutes)
 app.use(errorHandler)
 app.use((err, req, res, next) => {
   logger.error("Request Error", {
@@ -78,6 +78,9 @@ async function startServer() {
       server.close(async () => {
         try {
           logger.info("HTTP server closed");
+          await closeRabbitMQ();
+          await mongoose.connection.close();
+          await redisClient.quit();
           logger.info("Shutdown complete");
           clearTimeout(forceExit);
           process.exit(0);
