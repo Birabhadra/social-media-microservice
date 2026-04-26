@@ -28,8 +28,16 @@ export const waitForRedis = async () => {
   }
 
   return new Promise((resolve, reject) => {
-    client.once("ready", resolve);
-    client.once("error", reject);
+    const onReady = () => {
+      client.off("end", onEnd);
+      resolve();
+    };
+    const onEnd = () => {
+      client.off("ready", onReady);
+      reject(new Error("Redis connection ended before becoming ready"));
+    };
+    client.once("ready", onReady);
+    client.once("end", onEnd);
   });
 };
 

@@ -22,11 +22,15 @@ client.on("error", (err) => {
 
 });
 
-export function waitForRedis() {
+export const waitForRedis = async () => {
+  if (client.status === "ready") {
+    return;
+  }
+
   return new Promise((resolve, reject) => {
     client.once("ready", resolve);
     client.once("error", reject);
   });
-}
+};
 
 export default client;

@@ -20,18 +20,29 @@ export async function connectRabbitMQ(){
         throw e;
     }
 }
-export async function publishEvent(routingKey, message) {
-    if (!channel) {
-      await connectRabbitMQ();
-    }
-  
-    channel.publish(
-      EXCHANGE_NAME,
-      routingKey,
-      Buffer.from(JSON.stringify(message))
-    );
-    logger.info(`Event published: ${routingKey}`);
+export async function consumeEvent(routingKey, callback) {
+  if (!channel) {
+    await connectRabbitMQ();
   }
+  const q = await channel.assertQueue("", { exclusive: true });
+  await channel.bindQueue(q.queue, EXCHANGE_NAME, routingKey);
+  channel.consume(q.queue, async (msg) => {
+    if (!msg) return;
+    try {
+      const content = JSON.parse(msg.content.toString());
+      await callback(content);
+      channel.ack(msg);
+    } catch (err) {
+      logger.error(`❌ Error handling event ${routingKey}`, {
+        message: err.message,
+        stack: err.stack,
+      });
+      channel.ack(msg);
+    }
+  });
+
+  logger.info(`📡 Subscribed to event: ${routingKey}`);
+}
 
 export async function closeRabbitMQ() {
     try {
