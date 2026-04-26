@@ -12,7 +12,6 @@ export const validateToken=(req,res,next)=>{
             message:"Authentication Required"
         })
     }
-    const token=authHeader?.split(' ')[1]
 
     if(!token){
         logger.warn('Access attempted without token')

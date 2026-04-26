@@ -85,6 +85,19 @@ app.use('/v1/posts', validateToken, proxy(process.env.POST_SERVICE_URL, {
         return proxyResData
     }
 }))
+app.use('/v1/search', validateToken, proxy(process.env.SEARCH_SERVICE_URL, {
+    ...proxyOptions,
+    timeout:5000,
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+        proxyReqOpts.headers["content-type"] = "application/json",
+            proxyReqOpts.headers["x-user-id"] = srcReq.user.userId
+        return proxyReqOpts
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+        logger.info(`Response recieved from Post service:${proxyRes.statusCode}`)
+        return proxyResData
+    }
+}))
 
 app.use('/v1/media', validateToken, proxy(process.env.MEDIA_SERVICE_URL, {
     ...proxyOptions,
@@ -111,6 +124,8 @@ app.listen(PORT, async () => {
     logger.info(`Proxy Server running on http://localhost:${PORT}`)
     logger.info(`Identity service running on ${process.env.IDENTITY_SERVICE_URL}`)
     logger.info(`Post service running on ${process.env.POST_SERVICE_URL}`)
+    logger.info(`Media service running on ${process.env.MEDIA_SERVICE_URL}`)
+    logger.info(`Search service running on ${process.env.SEARCH_SERVICE_URL}`)
     await waitForRedis();
 
 })
