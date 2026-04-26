@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   });
 })
 
-app.use('/api/posts', postRoutes, sensitiveEndpointLimiter)
+app.use('/api/posts', sensitiveEndpointLimiter, postRoutes)
 app.use(errorHandler)
 app.use((err, req, res, next) => {
   logger.error("Request Error", {
