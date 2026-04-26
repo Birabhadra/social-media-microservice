@@ -3,17 +3,26 @@ import logger from "../utils/logger.js"
 
 export async function handlePostCreated(event) {
     try {
-        const newSearchPost = new Search({
-            postId: event.postId,
-            userId: event.userId,
-            content: event.content,
-            createdAt: event.createdAt
-        })
-        await newSearchPost.save()
-        logger.info(`Search post created:${event.postId},${newSearchPost._id.toString()}`)
+        await Search.updateOne(
+            { postId: event.postId },
+            {
+                $set: {
+                    userId: event.userId,
+                    content: event.content,
+                    createdAt: event.createdAt,
+                },
+            },
+            { upsert: true }
+        );
+
+        logger.info(`✅ Search post upserted: ${event.postId}`);
 
     } catch (e) {
-        logger.error(`${e},Error handling post creation event`)
+        logger.error("❌ Error handling post creation event", {
+            message: e.message,
+            stack: e.stack,
+        });
+        throw e;
     }
 }
 

@@ -10,7 +10,7 @@ import { waitForRedis } from "./config/redis.js"
 import connectMongo from "./config/db.js"
 import searchRoutes from "./routes/search.route.js"
 import errorHandler from "./middlewares/errorHandler.js"
-import {consumeEvent,connectRabbitMQ} from "./config/rabbitmq.js"
+import {consumeEvent,connectRabbitMQ,closeRabbitMQ} from "./config/rabbitmq.js"
 import cookieParser from "cookie-parser";
 import {handlePostDeleted,handlePostCreated} from "./eventHandlers/search-event-handler.js"
 const app = express()
@@ -22,7 +22,6 @@ app.use(helmet())
 app.use(cors())
 app.use((req, res, next) => {
     logger.info(`Received ${req.method} ${req.url}`);
-    logger.info(`Request Body,${req.body}`);
     next();
 })
 
@@ -50,7 +49,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.use("/api/search",searchRoutes)
+app.use("/api/search",sensitiveEndpointLimiter,searchRoutes)
 app.use(errorHandler)
 
 
@@ -64,7 +63,6 @@ async function startServer() {
   
       // 2. Wait for Redis
       await waitForRedis();
-      console.log("Hii")
       logger.info("✅ Redis ready");
 
 

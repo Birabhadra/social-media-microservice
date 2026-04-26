@@ -20,20 +20,28 @@ export async function connectRabbitMQ(){
         throw e;
     }
 }
-export async function consumeEvent(routingKey,callback){
-  if (!channel){
-    await connectRabbitMQ()
+export async function consumeEvent(routingKey, callback) {
+  if (!channel) {
+    await connectRabbitMQ();
   }
-  const q=await channel.assertQueue("",{exclusive:true})
-  await channel.bindQueue(q.queue,EXCHANGE_NAME,routingKey)
-  channel.consume(q.queue,(msg)=>{
-    if (msg!=null){
-      const content=JSON.parse(msg.content.toString())
-      callback(content);
-      channel.ack(msg)
+  const q = await channel.assertQueue("", { exclusive: true });
+  await channel.bindQueue(q.queue, EXCHANGE_NAME, routingKey);
+  channel.consume(q.queue, async (msg) => {
+    if (!msg) return;
+    try {
+      const content = JSON.parse(msg.content.toString());
+      await callback(content);
+      channel.ack(msg);
+    } catch (err) {
+      logger.error(`❌ Error handling event ${routingKey}`, {
+        message: err.message,
+        stack: err.stack,
+      });
+      channel.ack(msg);
     }
   });
-  logger.info(`subscribed to event: ${routingKey}`)
+
+  logger.info(`📡 Subscribed to event: ${routingKey}`);
 }
 
 export async function closeRabbitMQ() {
