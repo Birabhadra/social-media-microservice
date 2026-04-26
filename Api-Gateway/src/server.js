@@ -94,7 +94,7 @@ app.use('/v1/search', validateToken, proxy(process.env.SEARCH_SERVICE_URL, {
         return proxyReqOpts
     },
     userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
-        logger.info(`Response recieved from Post service:${proxyRes.statusCode}`)
+        logger.info(`Response received from Search service:${proxyRes.statusCode}`)
         return proxyResData
     }
 }))
