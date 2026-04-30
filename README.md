@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://nodejs.org/">
-    <img src="https://img.shields.io/badge/Node.js-18.x-green.svg?style=for-the-badge&logo=node.js" alt="Node.js">
+    <img src="https://img.shields.io/badge/Node.js-20.x-green.svg?style=for-the-badge&logo=node.js" alt="Node.js">
   </a>
   <a href="https://expressjs.com/">
     <img src="https://img.shields.io/badge/Express-5.x-lightgrey.svg?style=for-the-badge&logo=express" alt="Express">
