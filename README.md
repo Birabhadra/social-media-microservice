@@ -1,6 +1,7 @@
 <h1 align="center">
   <br>
-  <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/main/icons/NodeJS-Dark.svg" alt="Social Media Microservices" width="120">
+  <img width="2816" height="1536" alt="Gemini_Generated_Image_n2bxrin2bxrin2bx" src="https://github.com/user-attachments/assets/1f3ddc40-b487-46b9-9237-cb56ba16edcd" />
+
   <br>
   Social Media Microservices
   <br>
@@ -57,41 +58,43 @@ Built for high performance and reliability, this architecture is designed to han
 ## 🏗️ Architecture
 
 The system utilizes an API Gateway pattern to route traffic to the appropriate domain service. Services communicate asynchronously using a Message Broker to guarantee eventual consistency and high availability.
+<div align="centre">
+  <pre>
 
-```ascii
-                      +-------------------+
-                      |   Client / Web    |
-                      +---------+---------+
-                                |
-                                v
-                      +-------------------+
-                      |   API Gateway     |  <-- Rate Limiting (Redis)
-                      |   (Port 3000)     |      Auth Middleware
-                      +---------+---------+
-                                |
-        +---------------+-------+-------+---------------+
-        |               |               |               |
-        v               v               v               v
- +-------------+ +-------------+ +-------------+ +-------------+
- |  Identity   | |    Post     | |   Media     | |   Search    |
- |  Service    | |   Service   | |  Service    | |  Service    |
- +------+------+ +------+------+ +------+------+ +------+------+
-        |               |               |               |
-        +---------------+-------+-------+---------------+
-                                |
-                      +---------v---------+
-                      |     RabbitMQ      |  <-- Event Bus / Pub-Sub
-                      |  Message Broker   |
-                      +---------+---------+
-                                |
-        +---------------+-------+-------+---------------+
-        |               |               |               |
-        v               v               v               v
-   +---------+     +---------+     +---------+     +---------+
-   | MongoDB |     | MongoDB |     |Cloudinary     | MongoDB |
-   +---------+     +---------+     +---------+     +---------+
-```
+                                                      +-------------------+
+                                                      |   Client / Web    |
+                                                      +---------+---------+
+                                                                |
+                                                                v
+                                                      +-------------------+
+                                                      |   API Gateway     |  <-- Rate Limiting (Redis)
+                                                      |   (Port 3000)     |      Auth Middleware
+                                                      +---------+---------+
+                                                                |
+                                        +---------------+-------+-------+---------------+
+                                        |               |               |               |
+                                        v               v               v               v
+                                 +-------------+ +-------------+ +-------------+ +-------------+
+                                 |  Identity   | |    Post     | |   Media     | |   Search    |
+                                 |  Service    | |   Service   | |  Service    | |  Service    |
+                                 +------+------+ +------+------+ +------+------+ +------+------+
+                                        |               |               |               |
+                                        +---------------+-------+-------+---------------+
+                                                                |
+                                                      +---------v---------+
+                                                      |     RabbitMQ      |  <-- Event Bus / Pub-Sub
+                                                      |  Message Broker   |
+                                                      +---------+---------+
+                                                                |
+                                        +---------------+-------+-------+---------------+
+                                        |               |               |               |
+                                        v               v               v               v
+                                   +---------+     +---------+     +---------+     +---------+
+                                   | MongoDB |     | MongoDB |     |Cloudinary     | MongoDB |
+                                   +---------+     +---------+     +---------+     +---------+
 
+</pre>
+</div>
 ---
 
 ## ⚙️ Tech Stack
@@ -210,17 +213,6 @@ What makes this project stand out from standard monolithic tutorials?
 
 ---
 
-## 📸 Screenshots / Demo
-
-> *Note: Placeholders for your actual screenshots. Replace the `src` with your actual image paths.*
-
-<div align="center">
-  <img src="https://via.placeholder.com/800x400.png?text=App+Screenshot+1" alt="App Demo 1" width="800"/>
-  <br/>
-  <img src="https://via.placeholder.com/800x400.png?text=App+Screenshot+2" alt="App Demo 2" width="800"/>
-</div>
-
----
 
 ## 🛠️ Future Improvements
 
