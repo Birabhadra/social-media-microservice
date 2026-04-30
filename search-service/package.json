@@ -4,12 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^3.1.14"
+  },
+  "type": "module",
+  "dependencies": {
+    "amqplib": "^1.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.4.1",
+    "helmet": "^8.1.0",
+    "ioredis": "^5.10.1",
+    "mongoose": "^9.5.0",
+    "rate-limit-redis": "^4.3.1",
+    "rate-limiter-flexible": "^5.0.0",
+    "winston": "^3.19.0"
   }
 }

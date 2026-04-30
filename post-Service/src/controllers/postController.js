@@ -2,6 +2,7 @@ import logger from "../utils/logger.js"
 import { validateCreatePost } from "../utils/validation.js"
 import Post from "../models/post.model.js"
 import client from "../config/redis.js"
+import {publishEvent} from "../config/rabbitmq.js"
 async function invalidatePostCache(req, input) {
     const cachedKey = `post:${input}`;
     await client.del(cachedKey);
@@ -30,7 +31,14 @@ const createPost = async (req, res) => {
         })
         await newPost.save()
         await invalidatePostCache(req, newPost._id.toString());
-        logger.info("Post created successfully", newPost);
+        logger.info("Post created successfully");
+
+        await publishEvent("post.created", {
+            postId: newPost._id.toString(),
+            userId: newPost.user.toString(),
+            content: newPost.content,
+            createdAt: newPost.createdAt,
+          });
         return res.status(200).json({
             message: "Post created successfully",
             success: true,

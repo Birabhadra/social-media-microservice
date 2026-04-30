@@ -22,7 +22,7 @@ export async function connectRabbitMQ(){
 }
 export async function publishEvent(routingKey, message) {
     if (!channel) {
-      await connectToRabbitMQ();
+      await connectRabbitMQ();
     }
   
     channel.publish(
