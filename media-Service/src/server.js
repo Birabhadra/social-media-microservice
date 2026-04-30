@@ -12,10 +12,10 @@ import { waitForRedis } from "./config/redis.js"
 import connectMongo from "./config/db.js"
 import MediaRoutes from "./routes/mediaRouter.js"
 import errorHandler from "./middlewares/errorHandler.js"
-import crypto from "crypto";
+import { webcrypto } from "node:crypto";
 
-if (!global.crypto) {
-  global.crypto = crypto;
+if (!globalThis.crypto) {
+  globalThis.crypto = webcrypto;
 }
 const app = express()
 
