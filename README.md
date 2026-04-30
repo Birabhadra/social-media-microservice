@@ -238,8 +238,8 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 👤 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourusername)
+- GitHub: [@Birabhadra](https://github.com/Birabhadra)
+- LinkedIn: [Birabhadra-sahoo](https://www.linkedin.com/in/birabhadra-sahoo)
 
 <p align="center">
   <br>
