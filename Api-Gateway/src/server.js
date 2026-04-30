@@ -47,7 +47,7 @@ const proxyOptions = {
     proxyErrorHandler: (err, req, res, next) => {
         logger.error(`Proxy error ${err.message}`);
         if (!res.headersSent) {
-            const isTimeout = err?.code === "ECONNRESET" ||err?.code === "ETIMEDOUT" ||/timeout/i.test(err?.message || "");
+            const isTimeout = err?.code === "ECONNRESET" || err?.code === "ETIMEDOUT" || /timeout/i.test(err?.message || "");
             res.status(isTimeout ? 504 : 500).json({
                 success: false,
                 message: isTimeout ? "Gateway timeout" : "Internal server error",
@@ -56,10 +56,15 @@ const proxyOptions = {
     }
 }
 
+app.get('/', (req, res) => {
+    res.status(200).json({
+        message: "Api is running "
+    })
+})
 
 app.use('/v1/auth', proxy(process.env.IDENTITY_SERVICE_URL, {
     ...proxyOptions,
-    timeout:5000,
+    timeout: 5000,
     proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
         proxyReqOpts.headers["content-type"] = "application/json"
         return proxyReqOpts
@@ -74,7 +79,7 @@ app.use('/v1/auth', proxy(process.env.IDENTITY_SERVICE_URL, {
 
 app.use('/v1/posts', validateToken, proxy(process.env.POST_SERVICE_URL, {
     ...proxyOptions,
-    timeout:5000,
+    timeout: 5000,
     proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
         proxyReqOpts.headers["content-type"] = "application/json",
             proxyReqOpts.headers["x-user-id"] = srcReq.user.userId
@@ -87,7 +92,7 @@ app.use('/v1/posts', validateToken, proxy(process.env.POST_SERVICE_URL, {
 }))
 app.use('/v1/search', validateToken, proxy(process.env.SEARCH_SERVICE_URL, {
     ...proxyOptions,
-    timeout:5000,
+    timeout: 5000,
     proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
         proxyReqOpts.headers["content-type"] = "application/json",
             proxyReqOpts.headers["x-user-id"] = srcReq.user.userId
@@ -113,9 +118,9 @@ app.use('/v1/media', validateToken, proxy(process.env.MEDIA_SERVICE_URL, {
         logger.info(`Response recieved from Media service:${proxyRes.statusCode}`)
         return proxyResData
     },
-    parseReqBody:false,
+    parseReqBody: false,
     proxyTimeout: 20000,
-    timeout: 20000,  
+    timeout: 20000,
 }))
 
 app.use(errorHandler)

@@ -13,6 +13,7 @@
   "devDependencies": {
     "nodemon": "^3.1.14"
   },
+  "type": "module",
   "dependencies": {
     "amqplib": "^1.0.3",
     "cookie-parser": "^1.4.7",
